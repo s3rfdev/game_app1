@@ -4,9 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:game_balls/pages/level_page.dart';
 import 'package:game_balls/pages/privacy_page.dart';
 import 'package:get/get.dart';
+import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    Appodeal.show(AppodealAdType.All);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

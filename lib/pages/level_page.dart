@@ -3,11 +3,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:game_balls/pages/balls_page.dart';
 import 'package:game_balls/pages/game_page.dart';
 import 'package:get/get.dart';
+import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
 import '../models/stage.dart';
 
-class LevelPage extends StatelessWidget {
+class LevelPage extends StatefulWidget {
   const LevelPage({super.key});
+
+  @override
+  State<LevelPage> createState() => _LevelPageState();
+}
+
+class _LevelPageState extends State<LevelPage> {
+  @override
+  void initState() {
+    Appodeal.show(AppodealAdType.All);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

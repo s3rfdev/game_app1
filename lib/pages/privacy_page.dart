@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
-class PrivacyPage extends StatelessWidget {
+class PrivacyPage extends StatefulWidget {
   const PrivacyPage({super.key});
+
+  @override
+  State<PrivacyPage> createState() => _PrivacyPageState();
+}
+
+class _PrivacyPageState extends State<PrivacyPage> {
+  @override
+  void initState() {
+    Appodeal.show(AppodealAdType.All);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

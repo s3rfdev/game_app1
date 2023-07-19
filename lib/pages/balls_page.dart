@@ -2,11 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:game_balls/pages/game_page.dart';
 import 'package:get/get.dart';
+import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
 import '../models/stage.dart';
 
-class BallsPage extends StatelessWidget {
+class BallsPage extends StatefulWidget {
   const BallsPage({super.key});
+
+  @override
+  State<BallsPage> createState() => _BallsPageState();
+}
+
+class _BallsPageState extends State<BallsPage> {
+  @override
+  void initState() {
+    Appodeal.show(AppodealAdType.All);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
