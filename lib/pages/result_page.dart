@@ -3,12 +3,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:game_balls/widgets/ball.dart';
 import 'package:game_balls/widgets/balls_count.dart';
 import 'package:game_balls/widgets/result_text.dart';
+import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
 import '../models/stage.dart';
 import '../widgets/game_place.dart';
 
-class ResultPage extends StatelessWidget {
+class ResultPage extends StatefulWidget {
   const ResultPage({super.key});
+
+  @override
+  State<ResultPage> createState() => _ResultPageState();
+}
+
+class _ResultPageState extends State<ResultPage> {
+  @override
+  void initState() {
+    Appodeal.show(AppodealAdType.Interstitial);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -16,7 +16,7 @@ class BallsPage extends StatefulWidget {
 class _BallsPageState extends State<BallsPage> {
   @override
   void initState() {
-    Appodeal.show(AppodealAdType.All);
+    // Appodeal.show(AppodealAdType.All);
     super.initState();
   }
 

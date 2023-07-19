@@ -17,7 +17,7 @@ class LevelPage extends StatefulWidget {
 class _LevelPageState extends State<LevelPage> {
   @override
   void initState() {
-    Appodeal.show(AppodealAdType.All);
+    // Appodeal.show(AppodealAdType.All);
     super.initState();
   }
 

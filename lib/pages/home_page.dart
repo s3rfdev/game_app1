@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    Appodeal.show(AppodealAdType.All);
+    Appodeal.show(AppodealAdType.Interstitial);
     super.initState();
   }
 

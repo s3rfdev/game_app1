@@ -12,7 +12,7 @@ class PrivacyPage extends StatefulWidget {
 class _PrivacyPageState extends State<PrivacyPage> {
   @override
   void initState() {
-    Appodeal.show(AppodealAdType.All);
+    //Appodeal.show(AppodealAdType.All);
     super.initState();
   }
 
