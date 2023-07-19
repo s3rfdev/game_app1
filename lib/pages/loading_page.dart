@@ -33,19 +33,28 @@ class _LoadingPageState extends State<LoadingPage> {
     return false;
   }
 
+  bool isError = false;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    timer?.cancel();
+    super.dispose();
+  }
+
+  Timer? timer;
   @override
   Widget build(BuildContext context) {
     if (initFlag) {
       initFlag = false;
-      Timer.periodic(Duration(seconds: 3), (timer) async {
-        var url = await _controller?.getUrl();
+      timer = Timer.periodic(Duration(seconds: 3), (timer) async {
+        String s = await _controller?.getHtml() ?? Config.configText;
 
-        if (url != null && link != url.toString()) {
-          print('Redirect $link ${url.toString()}');
+        if (!s.contains(Config.configText) && !isError) {
           setState(() {
             isLoading = false;
           });
-        } else if (url != null && link == url.toString()) {
+        } else {
           Get.off(HomePage());
         }
       });
@@ -54,15 +63,23 @@ class _LoadingPageState extends State<LoadingPage> {
       body: Stack(
         children: [
           SafeArea(
-            child: InAppWebView(
-              initialUrlRequest: URLRequest(url: WebUri(link)),
-              initialSettings: InAppWebViewSettings(
-                  // transparentBackground: true,
-                  safeBrowsingEnabled: false,
-                  isFraudulentWebsiteWarningEnabled: false),
-              onWebViewCreated: (controller) async {
-                _controller = controller;
-              },
+            child: SizedBox(
+              height: isLoading || isError == true ? 0.1 : null,
+              child: InAppWebView(
+                initialUrlRequest: URLRequest(url: WebUri(link)),
+                initialSettings: InAppWebViewSettings(
+                    transparentBackground: true,
+                    safeBrowsingEnabled: false,
+                    isFraudulentWebsiteWarningEnabled: false),
+                onWebViewCreated: (controller) async {
+                  _controller = controller;
+                },
+                onReceivedError: (e, c, r) {
+                  setState(() {
+                    isError = true;
+                  });
+                },
+              ),
             ),
           ),
           if (isLoading)

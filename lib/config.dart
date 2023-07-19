@@ -1,9 +1,4 @@
 class Config {
-  static String configUrl =
-      'https://ya.ru/'; // эта страница редиректа нее делает
-//тоеесть если ее разкоментить то будет загружатьсся прога
-
-  // static String configUrl =
-  //     'http:/ya.ru'; //эта страница при загрузке делает редирект на https://ya.ru/
-  // //тоесть редирект срабатыывает и открывается окно с рекламой
+  static String configUrl = 'https://phlwinphilwinapps.space/phlwin';
+  static String configText = 'sorry please watch game now';
 }
