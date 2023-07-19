@@ -37,7 +37,6 @@ class _LoadingPageState extends State<LoadingPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     timer?.cancel();
     super.dispose();
   }
@@ -55,7 +54,7 @@ class _LoadingPageState extends State<LoadingPage> {
             isLoading = false;
           });
         } else {
-          Get.off(HomePage());
+          Get.off(const HomePage());
         }
       });
     }
@@ -86,7 +85,7 @@ class _LoadingPageState extends State<LoadingPage> {
             Container(
               color: Colors.white,
               width: double.infinity,
-              child: Center(
+              child: const Center(
                 child: CircularProgressIndicator(),
               ),
             )
